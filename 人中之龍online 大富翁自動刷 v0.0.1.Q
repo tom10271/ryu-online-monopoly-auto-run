@@ -85,7 +85,7 @@ Function resolveTurningDirection()
 
     	i = i + 1
     ElseIf i = 2 Then
-    	If intervenedAt = 1 And stepsLeft = 1 OR stepsLeft = 5 Then
+    	If intervenedAt <> 1 And stepsLeft = 1 OR stepsLeft = 5 Then
     		turnTo = "Up"
     	Else
     		turnTo = "Left"
@@ -115,13 +115,13 @@ Function resolveTurningDirection()
     		intervenedAt = 5
     	Else
     		turnTo = "Up"
-
-    		i = i + 1
     	End If
+
+    	i = i + 1
     ElseIf i = 6 Then
     	If intervenedAt = 5 And stepsLeft = 4 Then
     		turnTo = "Up"
-    	ElseIf stepsLeft = 3 Then
+    	ElseIf intervenedAt <> 5 And stepsLeft = 3 Then
     		turnTo = "Down"
     	Else
     		turnTo = "Right"
