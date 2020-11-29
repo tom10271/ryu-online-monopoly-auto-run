@@ -2,7 +2,7 @@
 
 ## 安裝
  - 螢幕解析度設定為1920*1080，不然抓圖會抓不到
- - 下載本腳本的檔案並解壓縮到`C:\` `https://github.com/tom10271/ryu-online-monopoly-auto-run/archive/master.zip`
+ - 下載本腳本的檔案並解壓縮到`C:\` https://github.com/tom10271/ryu-online-monopoly-auto-run/archive/master.zip
    - `人中之龍online 大富翁自動刷 vx.x.x.Q` 是按鍵的腳本，文字而已
    - `bmp`中的圖是按鍵抓圖用的目標圖案
    - 正確的話打開`C:\ryu-online-monoploy-auto-run\bmp\1.bmp`，你應該會看到1的圖
