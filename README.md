@@ -7,13 +7,13 @@
    - 解壓縮後把資料夾更名為`ryu-online-monopoly-auto-run`
    - `人中之龍online 大富翁自動刷 vx.x.x.Q` 是按鍵的腳本，文字而已
    - `bmp`中的圖是按鍵抓圖用的目標圖案
-   - 正確的話打開`C:\ryu-online-monoploy-auto-run\bmp\1.bmp`，你應該會看到1的圖
+   - 正確的話打開`C:\ryu-online-monopoly-auto-run\bmp\1.bmp`，你應該會看到1的圖
  - 安裝BlueStack
  - 在BlueStack中的GooglePlay中下載人中之龍online
  - 載入BlueStack的快捷鍵設定檔
-   - 在BlueStack中按Ctrl+Shift+A，右上角點`輸入`，再選`C:\ryu-online-monoploy-auto-run\人中之龍online.cfg`
+   - 在BlueStack中按Ctrl+Shift+A，右上角點`輸入`，再選`C:\ryu-online-monopoly-auto-run\人中之龍online.cfg`
  - 安裝按鍵精靈2014
- - 在我的腳本中右方空白處右按導入腳本，選`C:\ryu-online-monoploy-auto-run\`中的*.Q檔
+ - 在我的腳本中右方空白處右按導入腳本，選`C:\ryu-online-monopoly-auto-run\`中的*.Q檔
  - 點選剛導入的檔，你應該會看到腳本代碼
  
 ## 執行前準備
