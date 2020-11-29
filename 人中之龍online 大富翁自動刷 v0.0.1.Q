@@ -97,58 +97,61 @@ Function resolveTurningDirection()
     ElseIf i = 4 Then
     	If intervenedAt <> 3 And isBonusMode = True And (stepsLeft = 1 OR stepsLeft = 3 OR stepsLeft = 5) Then
     		turnTo = "Left"
-    	Else 
+    	Else
     		turnTo = "Down"
-    	
+
     		i = i + 1
     	End If
     ElseIf i = 5 Then
-    	If stepsLeft = 5 Then 
+    	If stepsLeft = 5 Then
     		turnTo = "Down"
     		intervenedAt = 5
-    	Else 
+    	Else
     		turnTo = "Up"
-    	
+
     		i = i + 1
     	End If
     ElseIf i = 6 Then
-    	If intervenedAt = 5 And stepsLeft = 4 Then 
+    	If intervenedAt = 5 And stepsLeft = 4 Then
     		turnTo = "Up"
-    	ElseIf stepsLeft = 3 Then 
+    	ElseIf stepsLeft = 3 Then
     		turnTo = "Down"
-    	Else 
+    	Else
     		turnTo = "Right"
-    	
+
     		i = i + 1
     	End If
     End If
-    
+
     turnDirection turnTo
-    
+
     Delay 1000
-    
+
     If i = 7 Then
-        i = 1	
+        i = 1
         intervenedAt = 0
     End If
 End Function
 
 Do While 1
     isClicked = False
-    
+
     FindPic 1005,210,1055,265,"C:\ryu-online-monopoly-auto-run\bmp\choose_direction.bmp",0.9,intX,intY
-    If intX > 0 And intY > 0 Then 
+    If intX > 0 And intY > 0 Then
        Call resolveTurningDirection()
-    Else 
+    Else
     	FindPic 1699,990,1868,1041,"C:\ryu-online-monopoly-auto-run\bmp\roll_dice.bmp",0.9,intX,intY
-        If intX > 0 And intY > 0 Then 
+        If intX > 0 And intY > 0 Then
             click 1700, 970
-        Else 
+        Else
         	FindPic 760,109,1132,166,"C:\ryu-online-monopoly-auto-run\bmp\recover_energy.bmp",0.9,intX,intY
-            If intX > 0 And intY > 0 Then 
-                click 1206, 550
+            If intX > 0 And intY > 0 Then
+                // 50: click 1206, 550
+
+                // Max
+                click 1286,693
                 Delay 1000
-                click 729,817
+                click 729, 817
                 Delay 1000
                 click 931,663
                 Delay 1000
