@@ -71,7 +71,7 @@ Function resolveTurningDirection()
 	stepsLeft = checkStepsLeft()
 	turnTo = ""
 
-	TracePrint "i: " & i & ", stepsLeft: " & stepsLeft & ", isBonusMode: " & isBonusMode
+	TracePrint "i: " & i & ", stepsLeft: " & stepsLeft & ", isBonusMode: " & isBonusMode & ", intervenedAt: " & intervenedAt
 
     // i是指現在是第幾次轉向
     // 決定轉哪邊在於剩下點數是多少，步數剛好有龍玉就會轉過去
@@ -85,7 +85,7 @@ Function resolveTurningDirection()
 
     	i = i + 1
     ElseIf i = 2 Then
-    	If intervenedAt <> 1 And stepsLeft = 1 OR stepsLeft = 5 Then
+    	If intervenedAt <> 1 And (stepsLeft = 1 OR stepsLeft = 5) Then
     		turnTo = "Up"
     	Else
     		turnTo = "Left"
@@ -147,7 +147,7 @@ Do While 1
     isClicked = False
 
     // 選方向畫面
-    FindPic 1005,210,1055,265,"C:\ryu-online-monopoly-auto-run\bmp\choose_direction.bmp",0.9,intX,intY
+    FindPic 1005,210,1055,265,"C:\ryu-online-monopoly-auto-run\bmp\choose_direction.bmp",0.8,intX,intY
     If intX > 0 And intY > 0 Then
        Call resolveTurningDirection()
     Else
