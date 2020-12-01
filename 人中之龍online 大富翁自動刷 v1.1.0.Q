@@ -1,6 +1,10 @@
+// 如果你要當覺醒玉賭徒，請改成 isAwakeningJadeGambler = True
+isAwakeningJadeGambler = False
+
 i = 1
 isClicked = False
 intervenedAt = 0
+overShootAt = 0
 
 // 檢查轉向時剩多少步
 Function checkStepsLeft()
@@ -85,8 +89,9 @@ Function resolveTurningDirection()
 
     	i = i + 1
     ElseIf i = 2 Then
-    	If intervenedAt <> 1 And (stepsLeft = 1 OR stepsLeft = 5) Then
+    	If intervenedAt <> 1 And overShootAt<> 2 And (stepsLeft = 1 OR stepsLeft = 5) Then
     		turnTo = "Up"
+    		overShootAt = 2
     	Else
     		turnTo = "Left"
 
@@ -96,14 +101,21 @@ Function resolveTurningDirection()
     	If isBonusMode = True And (stepsLeft = 3 OR stepsLeft = 5) Then
     		turnTo = "Up"
     		intervenedAt = 3
+    	ElseIf isAwakeningJadeGambler = True And stepsLeft = 5 Then
+    		turnTo = "Up"
+    		intervenedAt = 3
     	Else
     		turnTo = "Down"
     	End If
 
     	i = i + 1
     ElseIf i = 4 Then
-    	If intervenedAt <> 3 And isBonusMode = True And (stepsLeft = 1 OR stepsLeft = 3 OR stepsLeft = 5) Then
+    	If intervenedAt <> 3 And overShootAt <> 4 And isBonusMode = True And (stepsLeft = 1 OR stepsLeft = 3 OR stepsLeft = 5) Then
     		turnTo = "Left"
+    		overShootAt = 4
+    	ElseIf isAwakeningJadeGambler = True And overShootAt <> 4 And stepsLeft = 3 Then
+    		turnTo = "Left"
+    		overShootAt = 4
     	Else
     		turnTo = "Down"
 
@@ -119,10 +131,12 @@ Function resolveTurningDirection()
 
     	i = i + 1
     ElseIf i = 6 Then
-    	If intervenedAt = 5 And stepsLeft = 4 Then
+    	If intervenedAt = 5 And overShootAt <> 6 And stepsLeft = 4 Then
     		turnTo = "Up"
-    	ElseIf intervenedAt <> 5 And stepsLeft = 3 Then
+    		overShootAt = 6
+    	ElseIf intervenedAt <> 5 And overShootAt <> 6 And stepsLeft = 3 Then
     		turnTo = "Down"
+    		overShootAt = 6
     	Else
     		turnTo = "Right"
 
@@ -140,6 +154,7 @@ Function resolveTurningDirection()
     If i = 7 Then
         i = 1
         intervenedAt = 0
+        overShootAt = 0
     End If
 End Function
 
