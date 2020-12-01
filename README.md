@@ -19,6 +19,7 @@
     https://raw.githubusercontent.com/tom10271/ryu-online-monopoly-auto-run/master/%E4%BA%BA%E4%B8%AD%E4%B9%8B%E9%BE%8Donline%20%E5%A4%A7%E5%AF%8C%E7%BF%81%E8%87%AA%E5%8B%95%E5%88%B7%20v0.0.1.Q
  
 ## 執行前準備
+ - 如果想要開啟`覺醒玉賭徒模式`，請把腳本第2行改成`isAwakeningJadeGambler = True`
  - 登入你的帳號
  - 進入大富翁活動
  - 手動跑到下一圈
