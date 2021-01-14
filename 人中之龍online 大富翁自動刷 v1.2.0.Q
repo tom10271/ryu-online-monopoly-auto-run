@@ -1,6 +1,12 @@
 // 如果你要當覺醒玉賭徒，請改成 isAwakeningJadeGambler = True
 isAwakeningJadeGambler = False
 
+// 你的體力值
+characterEnergy = 200
+targetEnergySpending = 20000
+
+nRounds = targetEnergySpending / characterEnergy
+
 i = 1
 isClicked = False
 intervenedAt = 0
@@ -80,7 +86,7 @@ Function resolveTurningDirection()
     // i是指現在是第幾次轉向
     // 決定轉哪邊在於剩下點數是多少，步數剛好有龍玉就會轉過去
     If i = 1 Then
-    	If stepsLeft = 2 OR stepsLeft = 6 Then
+    	If stepsLeft = 7 Then
     		turnTo = "Right"
     		intervenedAt = 1
     	Else
@@ -89,59 +95,22 @@ Function resolveTurningDirection()
 
     	i = i + 1
     ElseIf i = 2 Then
-    	If intervenedAt <> 1 And overShootAt<> 2 And (stepsLeft = 1 OR stepsLeft = 5) Then
-    		turnTo = "Up"
+    	If intervenedAt = 1 And overShootAt <> 2 And (stepsLeft = 2 OR stepsLeft = 4) Then
+    		turnTo = "Left"
     		overShootAt = 2
-    	Else
-    		turnTo = "Left"
-
-    		i = i + 1
-    	End If
-    ElseIf i = 3 Then
-    	If isBonusMode = True And (stepsLeft = 3 OR stepsLeft = 5) Then
-    		turnTo = "Up"
-    		intervenedAt = 3
-    	ElseIf isAwakeningJadeGambler = True And stepsLeft = 5 Then
-    		turnTo = "Up"
-    		intervenedAt = 3
-    	Else
-    		turnTo = "Down"
-    	End If
-
-    	i = i + 1
-    ElseIf i = 4 Then
-    	If intervenedAt <> 3 And overShootAt <> 4 And isBonusMode = True And (stepsLeft = 1 OR stepsLeft = 3 OR stepsLeft = 5) Then
-    		turnTo = "Left"
-    		overShootAt = 4
-    	ElseIf isAwakeningJadeGambler = True And overShootAt <> 4 And stepsLeft = 3 Then
-    		turnTo = "Left"
-    		overShootAt = 4
-    	Else
-    		turnTo = "Down"
-
-    		i = i + 1
-    	End If
-    ElseIf i = 5 Then
-    	If stepsLeft = 5 Then
-    		turnTo = "Down"
-    		intervenedAt = 5
-    	Else
-    		turnTo = "Up"
-    	End If
-
-    	i = i + 1
-    ElseIf i = 6 Then
-    	If intervenedAt = 5 And overShootAt <> 6 And stepsLeft = 4 Then
-    		turnTo = "Up"
-    		overShootAt = 6
-    	ElseIf intervenedAt <> 5 And overShootAt <> 6 And stepsLeft = 3 Then
-    		turnTo = "Down"
-    		overShootAt = 6
     	Else
     		turnTo = "Right"
 
     		i = i + 1
     	End If
+    ElseIf i = 3 Then
+    	turnTo = "Right"
+
+    	i = i + 1
+    ElseIf i = 4 Then
+    	turnTo = "Up"
+	
+    	i = i + 1
     End If
 
     // 轉向
@@ -151,7 +120,7 @@ Function resolveTurningDirection()
     Delay 1000
 
     // i到7時就是到這圈的終點了，重設i和intervenedAt
-    If i = 7 Then
+    If i >= 5 Then
         i = 1
         intervenedAt = 0
         overShootAt = 0
@@ -173,13 +142,49 @@ Do While 1
         Else
             // 選擇喝水清單
         	FindPic 760,109,1132,166,"C:\ryu-online-monopoly-auto-run\bmp\recover_energy.bmp",0.9,intX,intY
-            If intX > 0 And intY > 0 Then
-                // 喝50水: click 1206, 550
-
-                // 喝體力Max
-                click 1286,693
-                Delay 1000
-                click 729, 817
+            If intX > 0 And intY > 0 And nRounds > 1 Then 
+				// 10
+				FindPic 1259,264,1357,315,"C:\Program Files (x86)\按鍵精靈2014\screen\drink max.bmp",0.8,intX,intY
+				If intX > 0 And intY > 0 Then 
+					click 1259,264
+				
+					nClicks = characterEnergy / 10
+				Else
+					// 30
+					FindPic 1254,394,1358,462,"C:\Program Files (x86)\按鍵精靈2014\screen\drink max.bmp",0.8,intX,intY
+					If intX > 0 And intY > 0 Then 
+						click 1259, 394
+						
+						nClicks = characterEnergy / 30
+					Else
+						// 50
+						FindPic 1247,533,1368,598,"C:\Program Files (x86)\按鍵精靈2014\screen\drink max.bmp",0.8,intX,intY
+						If intX > 0 And intY > 0 Then 
+							click 1259, 530
+							
+							nClicks = characterEnergy / 50
+						Else 
+							// Max
+							FindPic 1253,671,1365,735,"C:\Program Files (x86)\按鍵精靈2014\screen\drink max.bmp",0.8,intX,intY
+							If intX > 0 And intY > 0 Then 
+								click 1259, 670
+							
+								nClicks = 1
+							End If
+						End If
+					End If
+				End If
+				
+				nClicks = nClicks - 1
+				
+				For i = 1 To nClicks Step 1
+					click 1304,521
+				Next
+				
+				click 733, 825
+				
+				nRounds = nRounds -1
+				
                 Delay 1000
                 click 931,663
                 Delay 1000
@@ -209,6 +214,7 @@ Do While 1
                         // 沒體力
                     	FindPic 1703,990,1870,1041,"C:\ryu-online-monopoly-auto-run\bmp\no_energy.bmp",0.9,intX,intY
                         If intX > 0 And intY > 0 Then 
+                        	Delay 2500
                             click 1700, 970
                             Delay 2500
                         End If
