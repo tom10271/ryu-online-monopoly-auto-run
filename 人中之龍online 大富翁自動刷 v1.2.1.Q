@@ -144,28 +144,28 @@ Do While 1
         	FindPic 760,109,1132,166,"C:\ryu-online-monopoly-auto-run\bmp\recover_energy.bmp",0.9,intX,intY
             If intX > 0 And intY > 0 And nRounds > 1 Then 
 				// 10
-				FindPic 1259,264,1357,315,"C:\Program Files (x86)\按鍵精靈2014\screen\drink max.bmp",0.8,intX,intY
+				FindPic 1259,264,1357,315,"C:\ryu-online-monopoly-auto-run\bmp\drink.bmp",0.8,intX,intY
 				If intX > 0 And intY > 0 Then 
 					click 1259,264
 				
 					nClicks = characterEnergy / 10
 				Else
 					// 30
-					FindPic 1254,394,1358,462,"C:\Program Files (x86)\按鍵精靈2014\screen\drink max.bmp",0.8,intX,intY
+					FindPic 1254,394,1358,462,"C:\ryu-online-monopoly-auto-run\bmp\drink.bmp",0.8,intX,intY
 					If intX > 0 And intY > 0 Then 
 						click 1259, 394
 						
 						nClicks = characterEnergy / 30
 					Else
 						// 50
-						FindPic 1247,533,1368,598,"C:\Program Files (x86)\按鍵精靈2014\screen\drink max.bmp",0.8,intX,intY
+						FindPic 1247,533,1368,598,"C:\ryu-online-monopoly-auto-run\bmp\drink.bmp",0.8,intX,intY
 						If intX > 0 And intY > 0 Then 
 							click 1259, 530
 							
 							nClicks = characterEnergy / 50
 						Else 
 							// Max
-							FindPic 1253,671,1365,735,"C:\Program Files (x86)\按鍵精靈2014\screen\drink max.bmp",0.8,intX,intY
+							FindPic 1253,671,1365,735,"C:\ryu-online-monopoly-auto-run\bmp\drink.bmp",0.8,intX,intY
 							If intX > 0 And intY > 0 Then 
 								click 1259, 670
 							
