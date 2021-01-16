@@ -16,7 +16,7 @@
    - 在BlueStack中右邊的按鈕點遊戲控制(鍵盤圖示按鈕)，把不透明度調到最低，不然抓圖會被擋住
  - 安裝按鍵精靈2014
  - 在我的腳本中新建空白腳本，你應該會看到右邊一大片空間。點原始檔案再把腳本的字全貼上，之後按保存。
-    https://raw.githubusercontent.com/tom10271/ryu-online-monopoly-auto-run/master/%E4%BA%BA%E4%B8%AD%E4%B9%8B%E9%BE%8Donline%20%E5%A4%A7%E5%AF%8C%E7%BF%81%E8%87%AA%E5%8B%95%E5%88%B7%20v0.0.1.Q
+    https://raw.githubusercontent.com/tom10271/ryu-online-monopoly-auto-run/master/%E4%BA%BA%E4%B8%AD%E4%B9%8B%E9%BE%8Donline%20%E5%A4%A7%E5%AF%8C%E7%BF%81%E8%87%AA%E5%8B%95%E5%88%B7%20v1.2.1.Q
  
 ## 執行前準備
  - 如果想要開啟`覺醒玉賭徒模式`，請把腳本第2行改成`isAwakeningJadeGambler = True`
